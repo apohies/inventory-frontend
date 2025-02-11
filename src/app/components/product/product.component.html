@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Products</h2>
+    <button (click)="navigateToInventory()"> go to invetory</button>
+    <!-- Formulario para crear producto -->
+    <div class="form-container">
+      <h3>Create Product</h3>
+      <input [(ngModel)]="newProduct.name" placeholder="Name">
+      <input [(ngModel)]="newProduct.description" placeholder="Description">
+      <input [(ngModel)]="newProduct.price" type="number" placeholder="Price">
+      <button (click)="createProduct()">Create</button>
+    </div>
+  
+    <!-- Lista de productos -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

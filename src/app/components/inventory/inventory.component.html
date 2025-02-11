@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="header">
+    <h2>Iventory</h2>
+    <button (click)="navigateToProducts()">go to product</button>
+  </div>
+
+  <!-- Formulario para añadir inventario -->
+  <div class="form-container">
+    <h3>Añadir Inventario</h3>
+    <div class="form-group">
+      <select [(ngModel)]="newInventory.productId">
+        <option value="">Seleccione un producto</option>
+        <option *ngFor="let product of availableProducts" [value]="product.id">
+          {{product.name}} - {{product.description}}
+        </option>
+      </select>
+      <input 
+        [(ngModel)]="newInventory.quantity" 
+        placeholder="Cantidad"
+        type="number">
+      <button (click)="addInventory()">add</button>
+    </div>
+  </div>
+  
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product ID</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventoryList">
+        <td>{{item.id}}</td>
+        <td>{{item.productId}}</td>
+        <td>{{item.quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
